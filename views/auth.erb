@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Authmenace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="antialiased text-slate-600">
+    <main class="container mx-auto mt-28 px-5">
+      <h1 class="mb-6 text-4xl font-bold">Authmenace</h1>
+      <p class="mb-6"><strong><code><%= Rack::Utils.escape_html(params[:client_id]) %></code></strong> is attempting to sign in using <code><%= Rack::Utils.escape_html(params[:me]) %></code>.</p>
+      <% unless params[:scope].nil? || params[:scope].empty? %>
+        <p class="mb-6">The following permissions are being sought: <code><%= Rack::Utils.escape_html(params[:scope]) %></code>.</p>
+      <% end %>
+      <p class="mb-6">If this is expected, sign in with GitHub below.</p>
+      <form action="/auth/github" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= Rack::Protection::AuthenticityToken.token(env['rack.session']) %>">
+        <button type="submit" class="border bg-green-500 text-slate-100 border-green-500 hover:bg-green-100 hover:text-slate-600 hover:border-green-500 rounded-md px-4 py-3">Sign in with GitHub</button>
+      </form>
+    </main>
+    <footer class="container mx-auto mt-28 p-5 flex border-t border-slate-200 text-sm">
+      <p>
+        Copyright © 2024 <a href="https://www.wackomenace.co.uk/" target="_blank" rel="noopener noreferer">Ruben Arakelyan</a>
+      </p>
+      <p class="ml-4 pl-4 border-l border-slate-200">
+        Licensed under the <a href="https://opensource.org/license/mit" target="_blank" rel="noopener noreferer">MIT licence</a>
+      </p>
+      <p class="ml-4 pl-4 border-l border-slate-200">
+        <a href="https://github.com/rubenarakelyan/authmenace" target="_blank" rel="noopener noreferer">GitHub</a>
+      </p>
+    </footer>
+  </body>
+</html>
