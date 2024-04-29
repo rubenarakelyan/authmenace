@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.3.0"
 
+gem "addressable", "~> 2.8.6"
 gem "dotenv", "~> 3.1.0"
 gem "jwt", "~> 2.8.1"
 gem "omniauth", "~> 2.1.2"

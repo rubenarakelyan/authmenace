@@ -21,10 +21,17 @@ helpers do
       URI.encode_www_form(data)
     end
   end
+
+  def render_domain(uri)
+    display_uri = Addressable::URI.parse(uri).display_uri
+    display_uri.to_s == uri ? display_uri : "#{display_uri} (#{uri})"
+  rescue Addressable::URI::InvalidURIError
+    Rack::Utils.escape_html(uri)
+  end
 end
 
 get "/" do
-  "Authmenace IndieAuth authorization and token server"
+  erb :index
 end
 
 get "/auth" do

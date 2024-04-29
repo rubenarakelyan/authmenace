@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.8.6)
+      public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     base64 (0.2.0)
     dotenv (3.1.0)
@@ -40,6 +42,7 @@ GEM
     parser (3.3.0.5)
       ast (~> 2.4.1)
       racc
+    public_suffix (5.0.5)
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.7.3)
@@ -90,6 +93,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable (~> 2.8.6)
   dotenv (~> 3.1.0)
   jwt (~> 2.8.1)
   omniauth (~> 2.1.2)
