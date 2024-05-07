@@ -12,5 +12,7 @@ gem "rackup", "~> 2.1.0"
 gem "sinatra", "~> 4.0.0"
 
 group :development, :test do
+  gem "rack-test"
+  gem "rspec"
   gem "rubocop"
 end
