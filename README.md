@@ -10,7 +10,7 @@ It is currently used by me on the [wackomenace](https://www.wackomenace.co.uk) w
 
 ## Quick start (local development)
 
-Ensure Ruby 3.3.0 is installed. Then run:
+Ensure Ruby 3.3.4 is installed. Then run:
 
 ```
 cp .env.example .env

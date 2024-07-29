@@ -1,0 +1,24 @@
+name: Deploy Docker image to server
+
+on:
+  release:
+    types:
+      - released
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  deploy-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SSH key
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_ed25519
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
+      - name: Connect via SSH, pull repository and Docker image
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git pull && docker compose pull && docker compose up -d && exit"
+      - name: Clean up
+        run: rm -rf ~/.ssh
