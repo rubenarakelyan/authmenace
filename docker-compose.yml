@@ -5,5 +5,5 @@ services:
     image: ghcr.io/rubenarakelyan/authmenace:main
     env_file: .env
     ports:
-      - "4002:9292"
+      - "127.0.0.1:4002:9292"
     restart: always
