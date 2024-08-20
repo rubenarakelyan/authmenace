@@ -1,9 +1,0 @@
-name: authmenace
-
-services:
-  web:
-    image: ghcr.io/rubenarakelyan/authmenace:main
-    env_file: .env
-    ports:
-      - "127.0.0.1:4002:9292"
-    restart: always
