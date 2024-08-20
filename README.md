@@ -1,12 +1,10 @@
 # Authmenace
 
-A very simple [IndieAuth](https://indieweb.org/indieauth) authorization and token endpoint heavily inspired by [Acquiescence](https://github.com/barryf/acquiescence).
+A very simple Ruby [IndieAuth](https://indieweb.org/indieauth) authorization and token endpoint heavily inspired by [Acquiescence](https://github.com/barryf/acquiescence).
 
 ## Description
 
 Authmenace uses [JSON Web Tokens](https://jwt.io) to grant access to third-party websites that implement the IndieAuth standard. It therefore does not need any database.
-
-It is currently used by me on the [wackomenace](https://www.wackomenace.co.uk) website to sign in to other services using GitHub as the authentication provider.
 
 ## Quick start (local development)
 
